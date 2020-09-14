@@ -1,0 +1,8 @@
+{
+  "description": "Min første API",
+  "repository": {},
+  "license": "unlicensed",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

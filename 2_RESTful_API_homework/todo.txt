@@ -1,0 +1,3 @@
+TODO:
+AJAX - jQuery
+Lidt frontend

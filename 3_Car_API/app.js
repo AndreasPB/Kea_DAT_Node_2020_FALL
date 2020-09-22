@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/carWashes', (req, res) => {
-    res.send(carWashes);
+    res.send({ data: carWashes });
 });
 
 app.get('/api/carWashes/:id', (req, res) =>{
@@ -59,6 +59,18 @@ app.post('/api/carWashes', (req, res) => {
     };
     carWashes.push(carWash);
     res.send(carWash);
+});
+
+
+app.patch("/api/carWashes/:id", (req, res) => {
+    carWashes = carWashes.map(carWash => {
+        if (carWash.id === Number(req.params.id)) {
+            return { ...carWash, ...req.body, id: carWash.id };
+        }
+        return carWash;
+    });
+    return res.send({ data: carWashes });
+
 });
 
 app.put('/api/carWashes/:id', (req, res) => {
@@ -107,4 +119,12 @@ app.delete('/api/carWashes/:id', (req, res) => {
 
 // PORT
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Lytter til port ${port}...`))
+app.listen(port, (error) => {
+    
+
+    if (error) {
+        console.log("Error starting the server");
+    }
+    console.log(`Listening to port ${port}...`);
+    
+});

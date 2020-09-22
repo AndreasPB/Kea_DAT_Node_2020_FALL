@@ -14,7 +14,7 @@ app.use("/static", express.static('./static/'));
 //});
 
 
-const carWashes = [
+let carWashes = [
     { id: 1, name: 'Basis', price: 39 },
     { id: 2, name: 'Guld', price: 59},
     { id: 3, name: 'Premium', price: 79},

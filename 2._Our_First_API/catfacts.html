@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+    <h1>Cat Facts!</h1>
+
+    <table id="catTable" class="table table-dark table-striped">
+    </table>
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "https://cat-fact.herokuapp.com/facts",
+            dataType: "json",
+            success: function (json, status, xhr) {
+                
+
+                    let catList = json.all;
+                    
+
+                    let table = $("<thead><tr><th>Cat Facts</th><th>Upvotes</th></tr></thead>");
+                    let row = $('<tbody>');
+
+                    for (let i in catList) {
+                        row.append($('<tr><td>').text(catList[i].text));
+                        row.append($('</td><td>').text(catList[i].upvotes), '</td></tr>');
+                    }
+
+                    row.append($('<\tbody>'));
+                    table.append(row);
+
+                    
+                    $('#catTable').html(table);
+                    // $('#catTable').html(row);
+
+            },
+            error: function (xhr, status, error) {
+                alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+            }
+        });
+        
+    </script>
+</body>
+</html>

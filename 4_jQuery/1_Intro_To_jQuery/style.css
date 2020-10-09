@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+#teleport-btn {
+    width: 12%;
+    height: 25%;
+}
+
+input {
+    font-size: 2em;
+    padding-left: 0.4em;
+    width: 42%;
+}

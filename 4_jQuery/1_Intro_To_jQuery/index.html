@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First jQuery Project</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <h1>Test111</h1>
+<body><script type="text/javascript" src="/budo/livereload.js" async="" defer=""></script>
 
+    <h1>Teleportation</h1>
+    <input class="input-left" id="input-left" type=text placeholder="enter text">
+    <button id="teleport-btn" type=button>Submit!</button>
+    <input class="input-right" id="input-right" type=text placeholder="enter text">
+
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $( "button" ).click(function() {
+            console.log("clicked");
+        });
+
+        $( "button" ).click(() => {
+            /*
+            let leftInput = $('#input-left').val();
+            let rightInput = $('#input-right').val();
+
+            $('#input-left').val(rightInput);
+            $('#input-right').val(leftInput);
+            */
+
+            const leftInput = $('#input-left').val();
+
+            $('#input-left').val($('#input-right').val());
+            $('#input-right').val(leftInput);
+        });
+    </script>
     <script src="./index.js"></script>
 </body>
 </html>

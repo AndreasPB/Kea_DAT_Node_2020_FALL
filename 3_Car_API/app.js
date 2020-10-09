@@ -120,7 +120,6 @@ app.delete('/api/carWashes/:id', (req, res) => {
 // PORT
 const port = process.env.PORT || 3000;
 app.listen(port, (error) => {
-    
 
     if (error) {
         console.log("Error starting the server");

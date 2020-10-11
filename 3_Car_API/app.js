@@ -41,7 +41,7 @@ app.get('/api/carWashes/:id', (req, res) =>{
     const carWash = carWashes.find(c => c.id === parseInt(req.params.id));
     // 404
     if (!carWash) return res.status(404).send('Kurset med det givende ID blev ikke fundet!');
-    res.send(carWash)
+    res.send(carWash);
 });
 
 app.post('/api/carWashes', (req, res) => {

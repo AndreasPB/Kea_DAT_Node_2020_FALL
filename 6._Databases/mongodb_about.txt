@@ -1,0 +1,20 @@
+collections
+[
+    { name: "Anders" },
+    { type: "human", favoriteNumber: 12 }
+]
+
+use mysql:
+konsistent data
+giver garanti for data integrity
+
+mysql tjekker på database niveau
+mongodb kan tjekke på database niveau men kræver at man er sikker i applikationsniveauet
+
+ting kan gå galt med mongodb
+
+use mongodb:
+ikke konsistent data
+rapid prototype
+
+kan kombineres, mongodb til log

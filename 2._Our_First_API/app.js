@@ -15,18 +15,16 @@ app.get("/greeting", (req, res) => {
     return res.redirect("/");
 });
 
-app.get("/catfacts", (req, res) => {
-
-    return res.sendFile(__dirname + "/catfacts.html");
-
-});
-
 app.get("/proxy", (req, res) => {
     fetch("http://www.google.com")
         .then(result => result.textConverted())
         .then(body => {
             return res.send(body);
         });
+});
+
+app.get("/catfacts", (req, res) => {
+    return res.sendFile(__dirname + "/catfacts.html");
 });
 
 app.get("/documentation", (req, res) => {
